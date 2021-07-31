@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-const int maxn = 2e7;
+const int maxn = 3e7;
 
 int n;
 int nk, keys[maxn];
