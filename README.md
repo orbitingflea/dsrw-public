@@ -14,3 +14,7 @@ Shared code for dsrw course
 助教上传的 data maker 较慢，请耐心等待。每 check 一组测例，对拍器将会输出一行 ok。若答案错误，则会报错停止，此时 `task2_chk` 目录下的 `in` 文件是让你出错的输入，`out` 是你的输出，`ans` 是对照程序的输出。
 
 若遇到问题或不会使用，请联系本人。
+
+## task3 description
+
+如题，这是 task3 的形式化任务描述，若有问题请联系我。
