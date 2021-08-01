@@ -8,7 +8,7 @@
 
 False Positive Rate (FPR) 和 False Negative Rate (FNR) 是评价你的程序正确性的指标。我们要求 $\textrm{FPR} \le 1\%$, $\textrm{FNR} = 0$。
 
-你还需要支持多线程，令 $k$ 表示线程数量，则你需要支持 $k = 2, 4, 8, 16, 32$ 的情形。在计算开始之前，你可以将所有操作载入到内存中，并划分为 $k$ 个子操作序列，供每个线程使用；或者进行其他任意形式的预分配和调度。这一部分的时间和空间开销不计。
+你还需要支持多线程，令 $k$ 表示线程数量，则你需要支持 $k = 1, 2, 4, 8, 16, 32$ 的情形，其中 $k = 1$ 表示单线程。在计算开始之前，你可以将所有操作载入到内存中，并划分为 $k$ 个子操作序列，供每个线程使用；或者进行其他任意形式的预分配和调度。这一部分的时间和空间开销不计。
 
 为了降低难度，我们为你提供了一种调度方式，可供参考。程序运行时，当前目录下一个文件 `data.in`，描述整个问题的操作序列 $Q$。同时，有 $k$ 个独立的文件 `data1.in, data2.in, ..., data[k].in`，第 $i$ 个文件描述一个子操作序列 $Q_i$，且这 $k$ 个子操作序列的并等于完整的操作序列 $Q$。这个调度方式满足：
 
@@ -54,17 +54,21 @@ int main(int argc, char **argv) {
 using namespace std;
 using namespace chrono;
 
-// Start
+// Read from file(s) and initialize queues here.
+
+// --- Start Timing ---
 auto starting_time = system_clock::now();
 
-// Run Bloom Filter Here.
+// Create threads to run Bloom Filter here.
 
-// End & Output
+// --- End Timing ---
 double time_used = duration_cast<microseconds>(system_clock::now() -
                                                starting_time).count() / 1e3;
 ofstream f_time("time.out");
 f_time << fixed << setprecision(3) << time_used << endl;
 f_time.close();
+
+// Output results to file here.
 ```
 
 我们将手动检查你的代码，来确保你正确地完成了计时。请不要试图缩小计时范围，或故意输出伪造的计时结果。
